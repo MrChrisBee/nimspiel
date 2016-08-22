@@ -7,9 +7,9 @@ import java.util.Random;
 public class UndoableNim {
 	public static int DEFAULT_ROWS = 5;
 	public static int MAX_TOKENS_PER_ROW = 10;
-	private int[] rows;
-	private int xorOverAllRows;
-	private int notEmptyRows;
+	public int[] rows;
+	public int xorOverAllRows;
+	public int notEmptyRows;
 
 	protected List<UndoableNim> nimList = new ArrayList<>();
 
@@ -113,10 +113,10 @@ public class UndoableNim {
 			}
 		}
 		int x = possibleMoves.size();
-
+		//System.out.println("hier : " + x);
 		return possibleMoves.get(rnd.nextInt(x));
 	}
-
+ 
 	public UndoableNim doMove(NimMove move) {
 
 		// prüfe auf gültigen Zug
