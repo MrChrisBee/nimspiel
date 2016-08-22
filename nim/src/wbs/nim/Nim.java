@@ -10,37 +10,13 @@ public class Nim {
 	private int[] rows;
 	private int xorOverAllRows;
 	private int notEmptyRows;
-	public int[] getRows() {
-		return rows;
-	}
-
-	public void setRows(int[] rows) {
-		this.rows = rows;
-	}
-
-	public int getXorOverAllRows() {
-		return xorOverAllRows;
-	}
-
-	public void setXorOverAllRows(int xorOverAllRows) {
-		this.xorOverAllRows = xorOverAllRows;
-	}
-
-	public int getNotEmptyRows() {
-		return notEmptyRows;
-	}
-
-	public void setNotEmptyRows(int notEmptyRows) {
-		this.notEmptyRows = notEmptyRows;
-	}
-
-	protected List<Nim> nimList = new ArrayList<>();
 
 	private static Random rnd = new Random();
 
 	public Nim(int reihen, int steine) {
 		/*
-		 * Erstelle ein Nim Spiel mit reihen Reihen und je Maximal steine Steinen
+		 * Erstelle ein Nim Spiel mit reihen Reihen und je Maximal steine
+		 * Steinen
 		 */
 		if (reihen < 1 || steine < 1)
 			throw new NimException("Ungültige Kombination von Reihen Steinen, beides muss größer als 0 sein.");
@@ -50,7 +26,6 @@ public class Nim {
 			rows[i] = rnd.nextInt(steine) + 1;
 			xorOverAllRows ^= rows[i];
 		}
-		nimList.add(this);
 	}
 
 	public Nim() {
@@ -115,7 +90,7 @@ public class Nim {
 		// prüfe auf gültigen Zug
 		if (!isLegalMove(move))
 			throw new NimException("Ihr Zug ist nicht gültig!");
-		
+
 		int row = move.getRow();
 		int count = move.getCount();
 		// ist noch ein Stein übrig ?
@@ -129,7 +104,6 @@ public class Nim {
 		// xorOverAllRows pflegen 2. setze neuen Inhalt
 		xorOverAllRows ^= count;
 		rows[row] = count;
-		nimList.add(this);
 		return this;
 	}
 
