@@ -38,7 +38,7 @@ public class UndoableNimCB {
 		rows = uda.rows;
 		notEmptyRows = uda.notEmptyRows;
 		xorOverAllRows = uda.xorOverAllRows;
-		System.out.println("Neuer Konstruktor");
+		//System.out.println("Neuer Konstruktor");
 	}
 
 	public UndoableNimCB(int numberOfRows, int max_tokens_per_row) throws NimException {
